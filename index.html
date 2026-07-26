@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Un espacio personal para organizar, encontrar y abrir tus atajos favoritos."
+    />
+    <meta name="theme-color" content="#f7f5f2" />
+    <meta property="og:title" content="Mi espacio · Shortcuts" />
+    <meta
+      property="og:description"
+      content="Todos tus sitios de trabajo, organizados y a un clic."
+    />
+    <meta property="og:image" content="./og-shortcuts.png" />
+    <title>Mi espacio · Shortcuts</title>
+    <link rel="icon" type="image/webp" href="./favicon.webp" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./shortcuts_logo.webp" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Ir a todos los atajos">
+          <img src="./shortcuts_logo.webp" alt="" width="46" height="46" />
+          <span>
+            <strong>Shortcuts</strong>
+            <small>Mi espacio</small>
+          </span>
+        </a>
+
+        <div class="topbar-actions">
+          <label class="search-box" for="searchInput">
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar un atajo..."
+              autocomplete="off"
+            />
+            <kbd>/</kbd>
+          </label>
+          <div class="stats compact-stats" aria-label="Resumen del espacio">
+            <div class="stat">
+              <strong id="shortcutCount">0</strong>
+              <span>Atajos</span>
+            </div>
+            <div class="stat">
+              <strong id="categoryCount">0</strong>
+              <span>Categorías</span>
+            </div>
+            <div class="stat">
+              <strong id="favoriteCount">0</strong>
+              <span>Favoritos</span>
+            </div>
+          </div>
+          <div class="theme-picker">
+            <button
+              class="icon-button"
+              id="themeButton"
+              type="button"
+              aria-label="Elegir tema"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="themeMenu"
+              title="Elegir tema"
+            >
+              <span aria-hidden="true">◐</span>
+            </button>
+            <div class="theme-menu" id="themeMenu" role="menu" hidden>
+              <p>Estilo de la interfaz</p>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="system"
+                aria-checked="true"
+              >
+                <span class="theme-preview theme-preview-system" aria-hidden="true"></span>
+                <span><strong>Automático</strong><small>Sigue tu dispositivo</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="light"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-light" aria-hidden="true"></span>
+                <span><strong>Claro</strong><small>Diseño actual luminoso</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="dark"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-dark" aria-hidden="true"></span>
+                <span><strong>Oscuro</strong><small>Gris azulado</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="skeuodark"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-skeuodark" aria-hidden="true"></span>
+                <span><strong>Esqueumorfismo oscuro</strong><small>Relieves, metal y profundidad</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="wood"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-wood" aria-hidden="true"></span>
+                <span><strong>Wood</strong><small>Madera y estilo clásico</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="glass"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-glass" aria-hidden="true"></span>
+                <span><strong>Glass</strong><small>Transparencia y reflejos</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="dreamcore"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-dreamcore" aria-hidden="true"></span>
+                <span><strong>Dreamcore</strong><small>Prisma y nostalgia</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="frutiger"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-frutiger" aria-hidden="true"></span>
+                <span><strong>Frutiger</strong><small>Cielo, agua y naturaleza</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="brutalist"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-brutalist" aria-hidden="true"></span>
+                <span><strong>Brutalist</strong><small>Color, líneas y contraste</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="sketch"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-sketch" aria-hidden="true"></span>
+                <span><strong>Sketch</strong><small>Papel, lápiz y bocetos</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="paradise"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-paradise" aria-hidden="true"></span>
+                <span><strong>Paradise</strong><small>Luz, cielo y oro</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+              <button
+                type="button"
+                role="menuitemradio"
+                data-theme-choice="hell"
+                aria-checked="false"
+              >
+                <span class="theme-preview theme-preview-hell" aria-hidden="true"></span>
+                <span><strong>Hell</strong><small>Fuego, brasas y obsidiana</small></span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
+          <button class="primary-button" id="addShortcutButton" type="button">
+            <span aria-hidden="true">＋</span>
+            <span>Nuevo atajo</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="workspace" aria-label="Mis atajos">
+          <div class="workspace-toolbar">
+            <div class="tabs-scroll">
+              <nav class="tabs" id="tabs" aria-label="Categorías"></nav>
+            </div>
+            <div class="toolbar-actions">
+              <button class="soft-button" id="manageCategoriesButton" type="button">
+                <span aria-hidden="true">☷</span>
+                Pestañas
+              </button>
+              <button class="soft-button" id="backupButton" type="button">
+                <span aria-hidden="true">↥</span>
+                Respaldo
+              </button>
+            </div>
+          </div>
+
+          <div class="shortcut-grid" id="shortcutGrid"></div>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <div class="empty-icon" aria-hidden="true">⌕</div>
+            <h3>No encontramos atajos</h3>
+            <p>Prueba con otra búsqueda o crea uno nuevo para esta categoría.</p>
+            <button class="primary-button" id="emptyAddButton" type="button">
+              <span aria-hidden="true">＋</span>
+              Crear atajo
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="modal" id="shortcutDialog">
+      <form class="modal-card" id="shortcutForm">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">ATAJO</p>
+            <h2 id="shortcutDialogTitle">Nuevo atajo</h2>
+          </div>
+          <button
+            class="icon-button close-button"
+            type="button"
+            data-close="shortcutDialog"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+        </div>
+
+        <input id="shortcutId" type="hidden" />
+        <div class="form-grid">
+          <label class="field field-wide">
+            <span>Nombre</span>
+            <input
+              id="shortcutName"
+              name="name"
+              type="text"
+              placeholder="Ej. Biblioteca virtual"
+              maxlength="48"
+              required
+            />
+          </label>
+          <label class="field field-wide">
+            <span>Enlace</span>
+            <input
+              id="shortcutUrl"
+              name="url"
+              type="url"
+              placeholder="https://..."
+              required
+            />
+          </label>
+          <label class="field">
+            <span>Categoría</span>
+            <select id="shortcutCategory" name="category" required></select>
+          </label>
+          <label class="field">
+            <span>Icono opcional</span>
+            <input
+              id="shortcutIcon"
+              name="icon"
+              type="text"
+              placeholder="Emoji o enlace"
+              maxlength="500"
+            />
+          </label>
+        </div>
+
+        <fieldset class="color-picker">
+          <legend>Color de la tarjeta</legend>
+          <div id="colorOptions"></div>
+        </fieldset>
+
+        <div class="order-controls" id="shortcutOrderControls" hidden>
+          <span>Orden en la categoría</span>
+          <div>
+            <button class="secondary-button" id="moveShortcutBack" type="button">
+              ← Mover antes
+            </button>
+            <button class="secondary-button" id="moveShortcutForward" type="button">
+              Mover después →
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="danger-button" id="deleteShortcutButton" type="button" hidden>
+            Eliminar
+          </button>
+          <span class="action-spacer"></span>
+          <button class="secondary-button" type="button" data-close="shortcutDialog">
+            Cancelar
+          </button>
+          <button class="primary-button" type="submit">Guardar atajo</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="categoriesDialog">
+      <div class="modal-card categories-card">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">ORGANIZAR</p>
+            <h2>Administrar pestañas</h2>
+            <p>Renombra y cambia el orden de tus categorías.</p>
+          </div>
+          <button
+            class="icon-button close-button"
+            type="button"
+            data-close="categoriesDialog"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="category-list" id="categoryList"></div>
+
+        <form class="inline-form" id="categoryForm">
+          <label class="field">
+            <span>Nueva categoría</span>
+            <input
+              id="newCategoryName"
+              type="text"
+              placeholder="Ej. Planificación"
+              maxlength="28"
+              required
+            />
+          </label>
+          <button class="primary-button" type="submit">
+            <span aria-hidden="true">＋</span>
+            Añadir
+          </button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="backupDialog">
+      <div class="modal-card backup-card">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">TUS DATOS</p>
+            <h2>Respaldo y restauración</h2>
+            <p>Guarda una copia o llévala a otro dispositivo.</p>
+          </div>
+          <button
+            class="icon-button close-button"
+            type="button"
+            data-close="backupDialog"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="backup-options">
+          <button class="backup-option" id="exportButton" type="button">
+            <span class="backup-option-icon" aria-hidden="true">↓</span>
+            <span>
+              <strong>Exportar respaldo</strong>
+              <small>Descarga tus pestañas y atajos en un archivo.</small>
+            </span>
+          </button>
+          <button class="backup-option" id="importButton" type="button">
+            <span class="backup-option-icon" aria-hidden="true">↑</span>
+            <span>
+              <strong>Importar respaldo</strong>
+              <small>Restaura un archivo guardado anteriormente.</small>
+            </span>
+          </button>
+          <input id="importFile" type="file" accept="application/json,.json" hidden />
+        </div>
+
+        <div class="reset-panel">
+          <div>
+            <strong>Restablecer contenido inicial</strong>
+            <p>Se perderán las modificaciones guardadas en este dispositivo.</p>
+          </div>
+          <button class="danger-button" id="resetButton" type="button">
+            Restablecer
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="confirm-dialog" id="confirmDialog">
+      <div class="confirm-card">
+        <span class="confirm-icon" aria-hidden="true">!</span>
+        <h2 id="confirmTitle">¿Estás seguro?</h2>
+        <p id="confirmMessage"></p>
+        <div class="modal-actions">
+          <button class="secondary-button" id="confirmCancel" type="button">
+            Cancelar
+          </button>
+          <button class="danger-button solid" id="confirmAccept" type="button">
+            Confirmar
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "Shortcuts · Mi espacio",
+  "short_name": "Shortcuts",
+  "description": "Tus sitios de trabajo, organizados y a un clic.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f2ef",
+  "theme_color": "#ff4c8b",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "./shortcuts_logo.webp",
+      "sizes": "256x256",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "./favicon.webp",
+      "sizes": "256x256",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ]
+}
