@@ -31,7 +31,7 @@ const DEFAULT_STATE = {
     {
       id: "instrumentos",
       name: "Instrumentos de Evaluación",
-      url: "https://coeduca.github.io/instrumentos-de-evaluacion/#home",
+      url: "https://coeduca.github.io/instrumentos-de-evaluacionx/#home",
       categoryId: "educacion",
       icon: "./shortcuts-icons/instrumentos-de-evaluacion.webp",
       color: "rose",
